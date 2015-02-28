@@ -20,7 +20,7 @@
         Loan Amount:<asp:TextBox ID="tbLoanAmt" runat="server"></asp:TextBox>
         &nbsp;
             <span class="errorMessage">
-                <asp:RequiredFieldValidator ID="rfv_name" runat="server" 
+                <asp:RequiredFieldValidator ID="fieldValidator" runat="server" 
                      ControlToValidate="tbLoanAmt" 
                      ErrorMessage="** Must Enter Loan amount.">
                 </asp:RequiredFieldValidator>
@@ -30,7 +30,7 @@
         Annual Interest %: <asp:TextBox ID="tbAnnualInterest" runat="server" ></asp:TextBox>
         &nbsp;
             <span class="errorMessage">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                <asp:RequiredFieldValidator ID="FieldValidator1" runat="server" 
                      ControlToValidate="tbAnnualInterest" 
                      ErrorMessage="** Must Enter Interest Rate.">
                 </asp:RequiredFieldValidator>
@@ -42,12 +42,21 @@
         Loan Term (Yrs): <asp:TextBox ID="tbLoanTerm" runat="server" ></asp:TextBox>
         &nbsp;
             <span class="errorMessage">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                <asp:RequiredFieldValidator ID="FieldValidator2" runat="server" 
                      ControlToValidate="tbLoanTerm" 
                      ErrorMessage="** Must Enter Loan Term.">
                 </asp:RequiredFieldValidator>
             </span>
-           
+         <span class= "errorMessage">
+             <asp:RangeValidator
+             ControlToValidate="tbLoanTerm"
+             MinimumValue="0"
+             MaximumValue="100"
+            Type="Double"
+            EnableClientScript="false"
+            ErrorMessage="Must be a reasonable number"
+                runat="server" />
+                 </span>
                
              
         <br /><br />
