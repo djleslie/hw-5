@@ -81,10 +81,12 @@
         <br />
         <br />
         
+        <div class="GridView">
         <asp:GridView ID="loanGridView" runat="server" >
             <RowStyle CssClass="row" />
             <AlternatingRowStyle CssClass="altRow" />
         </asp:GridView>
+        </div>
         <br /> 
         <%End If%>
     </form>
