@@ -12,11 +12,11 @@ Partial Class _Default
         Dim loanTerm As Integer
         Dim monthlyPayment As Double
 
+
         'This section is declaring the variables for loan amortization.
         Dim interestPaid As Double
         Dim nBalance As Double
         Dim principal As Double
-
         'Declaring a table to hold the payment information.
         Dim table As DataTable = New DataTable("ParentTable")
         Dim loanAmortTbl As DataTable = New DataTable("AmortizationTable")
@@ -46,11 +46,12 @@ Partial Class _Default
         lblMonthlyPmt.Text = FormatCurrency(monthlyPayment)
 
 
+
         'Adds items to list box, formats them for currency and adds pad spacing for each item.
         loanAmortTbl.Columns.Add("Payment Number", System.Type.GetType("System.String"))
         loanAmortTbl.Columns.Add("Principal Paid", System.Type.GetType("System.String"))
         loanAmortTbl.Columns.Add("Interest Paid", System.Type.GetType("System.String"))
-
+        loanAmortTbl.Columns.Add("New Balance", System.Type.GetType("System.String"))
 
         'This section uses the for loop to display the loan balance and interest paid over the term of the loan.
         Dim counterStart As Integer
@@ -68,6 +69,7 @@ Partial Class _Default
             tRow("Payment Number") = String.Format(counterStart)
             tRow("Principal Paid") = String.Format("{0:C}", principal) ' String.Format("{0:C},principal) formats the variable "prinicpal" as currency (C).
             tRow("Interest Paid") = String.Format("{0:C}", interestPaid)
+            tRow("New Balance") = String.Format("{0:C}", nBalance)
             loanAmortTbl.Rows.Add(tRow)
 
             'Loops to next counterStart (Continues loop until counterStart requirements are met (loanTerm)).
