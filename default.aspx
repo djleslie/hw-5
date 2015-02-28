@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Loan Calculator</title>
+  <link rel="stylesheet" type="text/css" href="StyleSheet.css"/>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -35,14 +36,7 @@
                 </asp:RequiredFieldValidator>
 
             </span>
-            <span class="errorMessage">
-                <asp:RangeValidator ID="RangeValidator1" runat="server"
-                    ControlToValidate="tbAnnualInterest" 
-                    ErrorMessage="Invalid Rate" 
-                    Type="Double" MinimumValue="0">
-               
-                </asp:RangeValidator>
-                </span>
+            
         <br /><br />
 
         Loan Term (Yrs): <asp:TextBox ID="tbLoanTerm" runat="server" ></asp:TextBox>
@@ -53,8 +47,12 @@
                      ErrorMessage="** Must Enter Loan Term.">
                 </asp:RequiredFieldValidator>
             </span>
-         
+           
+               
+             
         <br /><br />
+
+
 
         <asp:Button ID="btnCalcPmt" runat="server" Text="Calculate" />
         
@@ -71,7 +69,8 @@
                 
         Monthly Payment: &nbsp; <asp:Label ID="lblMonthlyPmt" runat="server"></asp:Label>
         
-        <br /><br />
+        <br />
+        <br />
         
         <asp:GridView ID="loanGridView" runat="server" >
             <RowStyle CssClass="row" />
