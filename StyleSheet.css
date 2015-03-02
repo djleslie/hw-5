@@ -1,11 +1,7 @@
 ﻿body {background-color:#4cff00; color:black;
 }
 
-header {font-weight:bold; font-size:24px}
+header {font-weight:bold; font-size:24px; margin-bottom:10px; font-family: 'Century Gothic';}
 
-.GridView {
-    text-align: center;
-    font-family: sans-serif;
-}
-}
+.GridView {text-align:center; font-family: 'Century Gothic';}
 

@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Loan Calculator</title>
+    <titleLoan Calculator</title>
   <link rel="stylesheet" type="text/css" href="StyleSheet.css"/>
 </head>
 <body>
@@ -13,38 +13,32 @@
     <header>
     Dalton Leslie's Loan Calculator
     </header>
-      <div id="Content">   
-        <br /><br />
+     
      
             
       Loan Amount:<asp:TextBox ID="tbLoanAmt" runat="server"></asp:TextBox>
         &nbsp;
-            <span class="errorMessage">
                 <asp:RequiredFieldValidator ID="fieldValidator" runat="server" 
                      ControlToValidate="tbLoanAmt" 
                      ErrorMessage="* Must Enter Loan amount." BorderStyle="Solid"></asp:RequiredFieldValidator>
-            </span>
-          
-        <br /><br />
+           
+           <br /><br />
         Annual Interest %: <asp:TextBox ID="tbAnnualInterest" runat="server" ></asp:TextBox>
         &nbsp;
-            <span class="errorMessage">
-                <asp:RequiredFieldValidator ID="FieldValidator1" runat="server" 
+            <asp:RequiredFieldValidator ID="FieldValidator1" runat="server" 
                      ControlToValidate="tbAnnualInterest" 
                      ErrorMessage="* Must Enter Interest Rate." BorderStyle="Solid"></asp:RequiredFieldValidator>
 
-            </span>
+           
             
         <br /><br />
 
         Loan Term (Yrs): <asp:TextBox ID="tbLoanTerm" runat="server" ></asp:TextBox>
         &nbsp;
-            <span class="errorMessage">
                 <asp:RequiredFieldValidator ID="FieldValidator2" runat="server" 
                      ControlToValidate="tbLoanTerm" 
                      ErrorMessage="* Must Enter Loan Term." BorderStyle="Solid"></asp:RequiredFieldValidator>
-            </span>
-         <span class= "errorMessage">
+           
              <asp:RangeValidator
              ControlToValidate="tbLoanTerm"
              MinimumValue="0"
@@ -53,33 +47,31 @@
             EnableClientScript="false"
             ErrorMessage="Must be a reasonable number"
                 runat="server" BorderStyle="Solid" />
-                 </span>
-               
-             
-        <br /><br />
+                
+                <br /><br />
 
 
-
-        <asp:Button ID="btnCalcPmt" runat="server" Text="Calculate" />
-        
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button1" runat="server" Text="Clear" />
-        
+        <div class ="Buttons">
+   &nbsp;&nbsp;&nbsp;&nbsp
+     <asp:Button ID="btnCalcPmt" runat="server" Text="Calculate"/>
+     <asp:Button ID="Button1" runat="server" Text="Clear"/>
+     </div>
         <br />
             
-        </div>
+        
         <% If Not IsPostBack Then %>
-            <p> Welcome to my mortgage calculator. Please complete the field above to have your monthly payment and loan repayment schedule calculated for you..</p>
+            <p> Welcome to my mortgage calculator. Please complete the field above to have your monthly payment and loan repayment schedule calculated for you...</p>
         <% Else%>
         <br />
-                
+         
+        <div class ="MonthlyPmt" > 
         <h1>Monthly Payment: &nbsp; <asp:Label ID="lblMonthlyPmt" runat="server"></asp:Label></h1>
-        
+        </div>
         <br />
         <br />
         
         <div class="GridView">
-        <asp:GridView ID="loanGridView" runat="server" BackColor="White" BorderColor="Blue" BorderStyle="None" BorderWidth="3px" CellPadding="4" ForeColor="Black" GridLines="Vertical" >
+        <asp:GridView ID="loanGridView" runat="server" BackColor="White" BorderColor="#00FFFF" BorderStyle="solid" BorderWidth="8px" CellPadding="10" ForeColor="Black" GridLines="Vertical" >
             <FooterStyle BackColor="#CCCC99" />
             <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
