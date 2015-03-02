@@ -17,13 +17,12 @@
         <br /><br />
      
             
-        Loan Amount:<asp:TextBox ID="tbLoanAmt" runat="server"></asp:TextBox>
+      Loan Amount:<asp:TextBox ID="tbLoanAmt" runat="server"></asp:TextBox>
         &nbsp;
             <span class="errorMessage">
                 <asp:RequiredFieldValidator ID="fieldValidator" runat="server" 
                      ControlToValidate="tbLoanAmt" 
-                     ErrorMessage="** Must Enter Loan amount.">
-                </asp:RequiredFieldValidator>
+                     ErrorMessage="* Must Enter Loan amount." BorderStyle="Solid"></asp:RequiredFieldValidator>
             </span>
           
         <br /><br />
@@ -32,8 +31,7 @@
             <span class="errorMessage">
                 <asp:RequiredFieldValidator ID="FieldValidator1" runat="server" 
                      ControlToValidate="tbAnnualInterest" 
-                     ErrorMessage="** Must Enter Interest Rate.">
-                </asp:RequiredFieldValidator>
+                     ErrorMessage="* Must Enter Interest Rate." BorderStyle="Solid"></asp:RequiredFieldValidator>
 
             </span>
             
@@ -44,8 +42,7 @@
             <span class="errorMessage">
                 <asp:RequiredFieldValidator ID="FieldValidator2" runat="server" 
                      ControlToValidate="tbLoanTerm" 
-                     ErrorMessage="** Must Enter Loan Term.">
-                </asp:RequiredFieldValidator>
+                     ErrorMessage="* Must Enter Loan Term." BorderStyle="Solid"></asp:RequiredFieldValidator>
             </span>
          <span class= "errorMessage">
              <asp:RangeValidator
@@ -55,7 +52,7 @@
             Type="Double"
             EnableClientScript="false"
             ErrorMessage="Must be a reasonable number"
-                runat="server" />
+                runat="server" BorderStyle="Solid" />
                  </span>
                
              
@@ -72,19 +69,27 @@
             
         </div>
         <% If Not IsPostBack Then %>
-            <p> Welcome to my mortgage calculator. Please complete the field above to have your monthly payment and loan repayment schedule calculated for you.</p>
+            <p> Welcome to my mortgage calculator. Please complete the field above to have your monthly payment and loan repayment schedule calculated for you..</p>
         <% Else%>
         <br />
                 
-        Monthly Payment: &nbsp; <asp:Label ID="lblMonthlyPmt" runat="server"></asp:Label>
+        <h1>Monthly Payment: &nbsp; <asp:Label ID="lblMonthlyPmt" runat="server"></asp:Label></h1>
         
         <br />
         <br />
         
         <div class="GridView">
-        <asp:GridView ID="loanGridView" runat="server" >
-            <RowStyle CssClass="row" />
-            <AlternatingRowStyle CssClass="altRow" />
+        <asp:GridView ID="loanGridView" runat="server" BackColor="White" BorderColor="Blue" BorderStyle="None" BorderWidth="3px" CellPadding="4" ForeColor="Black" GridLines="Vertical" >
+            <FooterStyle BackColor="#CCCC99" />
+            <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+            <RowStyle CssClass="row" BackColor="#F7F7DE" />
+            <AlternatingRowStyle CssClass="altRow" BackColor="White" />
+            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#FBFBF2" />
+            <SortedAscendingHeaderStyle BackColor="#848384" />
+            <SortedDescendingCellStyle BackColor="#EAEAD3" />
+            <SortedDescendingHeaderStyle BackColor="#575357" />
         </asp:GridView>
         </div>
         <br /> 
